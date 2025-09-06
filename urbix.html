@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./urbix.css">
+    <title>Urbix</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-section">
+            <img src="./logo-md.png" alt="Logo" class="img-fluid me-2">
+            <h2 class="mb-2 text-dark fw-bold">Urbix</h2>
+        </div>
+        <div class="horizontal-nav">
+            <a href="#">Dashboard</a>
+            <a href="#">Applications</a>
+            <a href="#">Pages</a>
+            <a href="#">Icons</a>
+            <a href="#">Other</a>
+        </div>
+        <div class="nav-sections">
+            <div class="nav-section">
+                <h6 class="text-dark text-uppercase">Main</h6>
+                <div class="nav-links">
+                    <a href="#" class="text-grey">Dashboard</a>
+                    <a href="#" class="text-grey">Applications</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <h6 class="text-dark text-uppercase">Pages</h6>
+                <div class="nav-links">
+                    <a href="#" class="text-grey">Authentication</a>
+                    <a href="#" class="text-grey">Page</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <h6 class="text-dark text-uppercase">Components</h6>
+                <div class="nav-links">
+                    <a href="#" class="text-grey">Base UI</a>
+                    <a href="#" class="text-grey">Advanced UI</a>
+                    <a href="#" class="text-grey">Forms</a>
+                    <a href="#" class="text-grey">Tables</a>
+                    <a href="#" class="text-grey">Charts</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <h6 class="text-dark text-uppercase">Icons & Maps</h6>
+                <div class="nav-links">
+                    <a href="#" class="text-grey">Icons</a>
+                    <a href="#" class="text-grey">Maps</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <h6 class="text-dark text-uppercase">Other</h6>
+                <div class="nav-links">
+                    <a href="#" class="text-grey">Menu Levels</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm px-3">
+            <div class="container-fluid justify-content-between">
+                <form class="d-flex">
+                    <input class="form-control form-control-sm me-2 rounded-pill" type="search" placeholder="Search"
+                        data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <button class="btn btn-light btn-sm rounded-circle" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+                <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content rounded-4 shadow">
+                            <div class="modal-body">
+                                <form class="d-flex mb-3">
+                                    <input class="form-control form-control-sm me-2 rounded-pill" type="search"
+                                        placeholder="Search">
+                                    <button class="btn btn-primary btn-sm rounded-circle" type="submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </form>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Dashboard</li>
+                                    <li class="list-group-item">Applications</li>
+                                    <li class="list-group-item">Pages</li>
+                                    <li class="list-group-item">Blogs </li>
+                                    <li class="list-group-item">Ecommerce</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center m-2">
+                    <button class="btn btn-light me-3 position-relative">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>
+                    </button>
+
+                    <button class="btn btn-light me-3 position-relative">
+                        <i class="bi bi-cart fs-5"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">3</span>
+                    </button>
+                    <div id="settingsSidebar" class="settings-sidebar">
+                        <div class="settings-header d-flex justify-content-between align-items-center">
+                            <h5 class="fw-bold m-0">Settings</h5>
+                            <button class="btn-close btn-close-white" onclick="toggleSettings()"></button>
+                        </div>
+                        <div class="p-3">
+                            <h6 class="fw-bold">Theme</h6>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="darkModeSwitch"
+                                    onchange="ontheme()">
+                                <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+                            </div>
+                            <h6 class="fw-bold">Layout Mode</h6>
+                            <div class="mb-3">
+
+                                <button class="btn btn-outline-light me-2" onclick="setLayout('ltr')">LTR</button>
+                                <button class="btn btn-outline-light" onclick="setLayout('rtl')">RTL</button>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="fw-bold mb-2">Layout Style</h6>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-light text-start"
+                                        onclick="setLayoutStyle('vertical')">
+                                        <i class="bi bi-layout-sidebar me-2"></i>Default (Vertical)
+                                    </button>
+                                    <button class="btn btn-outline-light text-start" onclick="setLayoutStyle('semi')">
+                                        <i class="bi bi-layout-sidebar-reverse me-2"></i>Semi-box
+                                    </button>
+                                    <button class="btn btn-outline-light text-start"
+                                        onclick="setLayoutStyle('horizontal')">
+                                        <i class="bi bi-layout-three-columns me-2"></i> Horizontal
+                                    </button>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="settingsOverlay" class="settings-overlay" onclick="toggleSettings()"></div>
+                    <button class="btn btn-light me-3" onclick="toggleSettings()">
+                        <i class="bi bi-gear fs-5"></i>
+                    </button>
+
+
+                    <button class="btn btn-light me-3" id="themeToggle" onclick="theme()">
+                        <i class="bi bi-moon fs-5"></i>
+                    </button>
+                    <div class="dropdown">
+
+                        <a href="#" class="d-flex align-items-center text-dark text-decoration-none"
+                            data-bs-toggle="dropdown">
+                            <img src="./avatar-3.jpg" alt="profile" width="40" height="40"
+                                class="img-fluid rounded-circle me-2">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <i class="bi bi-person-circle me-2"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <i class="bi bi-gear me-2"></i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <i class="bi bi-clock-history me-2"></i> History
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <i class="bi bi-currency-dollar me-2"></i> Payments
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <i class="bi bi-headphones me-2"></i> Support
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+        <div class="container bg-light mt-4">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-3 border-0">
+                        <div class="d-flex flex-column align-items-start">
+                            <div class="d-flex align-items-center justify-content-between w-100 mb-2">
+                                <div class="d-flex align-items-center">
+                                    <img src="./imgi_12_facebook.png" alt="Facebook" width="35" class="me-2">
+                                    <h6 class="fw-bold mb-0">Facebook</h6>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0 border-0 bg-transparent" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical fs-5"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">This week</a></li>
+                                        <li><a class="dropdown-item" href="#">This month</a></li>
+                                        <li><a class="dropdown-item" href="#">This year</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <p class="fs-3 fw-bold text-darkary mb-0">33,854</p>
+                                <p class="text-muted">Followers</p>
+                            </div>
+                            <div>
+                                <p class="fs-3 fw-bold text-darkary mb-0">+97k</p>
+                                <p class="text-muted">Likes/day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-3 border-0">
+                        <div class="d-flex flex-column align-items-start">
+                            <div class="d-flex align-items-center justify-content-between w-100 mb-2">
+
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="./imgi_13_instagram.png" alt="Instagram" width="35" class="me-2">
+                                    <h6 class="fw-bold mb-0">Instagram</h6>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0 border-0 bg-transparent" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical fs-5"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">This week</a></li>
+                                        <li><a class="dropdown-item" href="#">This month</a></li>
+                                        <li><a class="dropdown-item" href="#">This year</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <p class="fs-3 fw-bold text-darker mb-0">26,458</p>
+                                <p class="text-muted">Followers</p>
+                            </div>
+
+                            <div>
+                                <p class="fs-3 fw-bold text-darker mb-0">+9k</p>
+                                <p class="text-muted">Likes/day</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-3 border-0">
+                        <div class="d-flex flex-column align-items-start">
+                            <div class="d-flex align-items-center justify-content-between w-100 mb-2">
+
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="./imgi_14_twitter.png" alt="X" width="35" class="me-2">
+                                    <h6 class="fw-bold mb-0">X (Twitter)</h6>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn p-0 border-0 bg-transparent" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical fs-5"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">This week</a></li>
+                                        <li><a class="dropdown-item" href="#">This month</a></li>
+                                        <li><a class="dropdown-item" href="#">This year</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-2">
+                                <p class="fs-3 fw-bold text-dark mb-0">36,778 </p>
+                                <p class="text-muted">Followers</p>
+                            </div>
+
+                            <div>
+                                <p class="fs-3 fw-bold text-dark mb-0">+149k</p>
+                                <p class="text-muted">Likes/day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card shadow-sm p-3 border-0">
+                        <div class="d-flex flex-column align-items-start">
+                            <h4 class="fw-bold p-2">Engagement Rate</h4>
+                            <div>
+                                <img src="./download.svg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm p-3 border-0">
+                            <div class="d-flex flex-column align-items-center">
+                                <h4 class="text-muted">Engaged Users</h4>
+                                <h3 class="fw-bold">12.2k</h3>
+                                <div>
+                                    <img src="./greenline.svg" alt="greenline">
+                                </div>
+                                <h6><span class="text-success fs-5">⬆</span>90%</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card shadow-sm p-3 border-0">
+                            <div class="d-flex flex-column align-items-center">
+                                <h4 class="text-muted">Page Impression</h4>
+                                <h3 class="fw-bold">48</h3>
+                                <div>
+                                    <img src="./redline.svg" alt="redline">
+                                </div>
+                                <h6><span class="text-danger fs-5">⬇</span>8%</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card shadow-sm p-3 border-0">
+
+
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between w-100 mb-2">
+
+                                <h4 class="fw-bold p-2 ">Visitor's page</h4>
+                                <div class="dropdown">
+                                    <button class="btn p-0 border-0 bg-transparent" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical fs-5"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">This week</a></li>
+                                        <li><a class="dropdown-item" href="#">This month</a></li>
+                                        <li><a class="dropdown-item" href="#">This year</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center ">
+                                <img src="./imgi_31_default.png" width="280px" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card shadow-sm p-3 border-0">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="fw-bold p-2 ">Page Reach</h4>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-light rounded-pill" data-bs-toggle="dropdown">Weekly</button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Weekly</a></li>
+                                        <li><a class="dropdown-item" href="#">In Transit</a></li>
+                                        <li><a class="dropdown-item" href="#">Delivered</a></li>
+                                        <li><a class="dropdown-item" href="#">Pending</a></li>
+                                        <li><a class="dropdown-item" href="#">Delayed</a></li>
+                                        <li><a class="dropdown-item" href="#">Canceled</a></li>
+                                    </ul>
+                                 </div>
+                            </div>
+                            <h2 class="mt-3 mb-0 fw-bold p-2">83.8</h2>
+                            <p class="text-muted">visitors per month</p>
+                            <div class="d-flex align-items-center justify-content-center gap-0">
+                                <img src="./avatar-3.jpg" width="35" height="35" class="img-fluid rounded-circle m-0">
+                                <img src="./avatar-2.jpg" width="35" height="35" class="img-fluid rounded-circle m-0">
+                                <img src="./avatar-1.jpg" width="35" height="35" class="img-fluid rounded-circle m-0">
+                                <p class="text-center text-muted m-0 p-1">236+ new users</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card shadow-sm p-3 border-0">
+                        <div class="d-flex flex-column">
+                            <h4 class="fw-bold p-2 ">Daily visitors</h4>
+                            <div class="d-flex justify-content-center align-items-center ">
+                                <img src="./chrt2.svg" alt="chart2" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row g-3 mt-3">
+                            <div class="col-md-4 rounded">
+                                <div class="p-3 inncard">
+                                    <h3 class="text-center m-0">25.20K</h3>
+                                    <p class="text-center m-0">Facebook</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 t">
+                                <div class="p-3 inncard">
+                                    <h3 class="text-center m-0">38.94K</h3>
+                                    <p class="text-center m-0">Instagram</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 t">
+                                <div class="p-3 inncard">
+                                    <h3 class="text-center m-0">75.05K</h3>
+                                    <p class="text-center m-0">Twitter</p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center gap-5 mt-4">
+                                <ul class="list-unstyled">
+                                    <li class="fs-5 fw-bold mb-3"><span><button
+                                                class="btn btn-primary p-3 border-0"></button></span> Productivity</li>
+
+                                    <li class="fs-5 fw-bold mb-3"><span><button
+                                                class="btn btn-warning p-3 border-0"></button> Productivity</li>
+                                    <li class="fs-5 fw-bold mb-3"><span><button
+                                                class="btn btn-success p-3 border-0"></button> Productivity</li>
+                                </ul>
+                                <ul class="list-unstyled">
+                                    <li class="fs-5 fw-bold mb-3">+1.8K Productivity<span class="text-success">⬆</span>
+                                    </li>
+                                    <li class="fs-5 fw-bold mb-3">-185 Productivity<span class="text-danger">⬇</span>
+                                    </li>
+                                    <li class="fs-5 fw-bold mb-3">+230 Productivity<span class="text-success">⬆</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card shadow-sm p-3 border-0">
+                        <div class="d-flex align-items-center justify-content-between w-100 mb-2">
+
+                            <h3 class="fw-bold p-2">Global Engagement</h3>
+                            <div class="dropdown">
+                                <button class="btn p-0 border-0 bg-transparent" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical fs-5"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">This week</a></li>
+                                    <li><a class="dropdown-item" href="#">This month</a></li>
+                                    <li><a class="dropdown-item" href="#">This year</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center ">
+                            <img src="./chrt3.svg" alt="chart3" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm p-3 border-0">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-column p-2">
+                                        <h5 class="fw-bold m-0">Post Activity</h5>
+                                        <h6 class="text-muted">From 15 Feb - 15 May,2024</h6>
+                                    </div>
+                                    <button class="btn violet text-light">Change period</button>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-column p-2">
+                                        <h3 class="fw-bold">687</h3>
+                                        <p class="text-muted">Stories</p>
+                                    </div>
+                                    <div class="d-flex flex-column p-2">
+                                        <h3 class="fw-bold">189</h3>
+                                        <p class="text-muted">Post</p>
+                                    </div>
+                                    <div class="d-flex flex-column p-2">
+                                        <h3 class="fw-bold">24</h3>
+                                        <p class="text-muted">Reels</p>
+                                    </div>
+                                </div>
+
+                                <div class="calendar">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>S</th>
+                                                <th>M</th>
+                                                <th>T</th>
+                                                <th>W</th>
+                                                <th>T</th>
+                                                <th>F</th>
+                                                <th>S</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="violet">1</td>
+                                                <td class="purp">2</td>
+                                                <td class="purple">3</td>
+                                                <td class="purp">4</td>
+                                                <td class="violet">5</td>
+                                                <td class="purp">6</td>
+                                                <td class="purple">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="purp">8</td>
+                                                <td class="violet">9</td>
+                                                <td class="purple">10</td>
+                                                <td class="violet">11</td>
+                                                <td class="purp">12</td>
+                                                <td class="violet">13</td>
+                                                <td class="purple">14</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="purp">15</td>
+                                                <td class="violet">16</td>
+                                                <td class="purple">17</td>
+                                                <td class="purp">18</td>
+                                                <td class="violet">19</td>
+                                                <td class="purple">20</td>
+                                                <td class="purp">21</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="violet">22</td>
+                                                <td class="purp">23</td>
+                                                <td class="purple">24</td>
+                                                <td class="violet">25</td>
+                                                <td class="purp">26</td>
+                                                <td class="violet">27</td>
+                                                <td class="purple">28</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="purp">29</td>
+                                                <td class="violet">30</td>
+                                                <td class="purple">31</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card shadow-sm p-3 border-0">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-column p-2">
+                                        <h5 class="fw-bold m-0">Your Account</h5>
+                                        <h6 class="text-muted">You Have 2 Accounts</h6>
+                                    </div>
+                                    <button class="btn violet text-light">+Add Account</button>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-start mb-4">
+                                <div class="me-3">
+                                    <img src="./avatar-1.jpg" width="50" class="img-fluid rounded-circle">
+                                </div>
+                                <div class="d-flex flex-column mt-3">
+                                    <h5 class="m-0">@samanthawilliam_</h5>
+                                    <div class="d-flex justify-content-between gap-3 mt-1 ">
+                                        <span class="text-muted ">Instagram</span>
+                                        <span class="text-muted">278,534 Followers</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary ms-auto ">Active</button>
+
+                            </div>
+                            <div class="d-flex align-items-center justify-content-start mb-4">
+                                <div class="me-3">
+                                    <img src="./avatar-2.jpg" width="50" class="rounded-circle">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h5 class="m-0">@samanthawilliam_</h5>
+                                    <div class="d-flex justify-content-between gap-3 mt-1">
+                                        <span class="text-muted ">Instagram</span>
+                                        <span class="text-muted">278,534 Followers</span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="d-flex align-items-center justify-content-start mb-4">
+                                <div class="me-3">
+                                    <img src="./avatar-3.jpg" width="50" class="rounded-circle">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h5 class="m-0">@samanthawilliam_</h5>
+                                    <div class="d-flex justify-content-between gap-3 mt-1">
+                                        <span class="text-muted ">Instagram</span>
+                                        <span class="text-muted">278,534 Followers</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="d-flex align-items-center justify-content-start mb-4">
+                                <div class="me-3">
+                                    <img src="./avatar-1.jpg" width="50" class="rounded-circle">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h5 class="m-0">@samanthawilliam_</h5>
+                                    <div class="d-flex justify-content-between gap-3 mt-1">
+                                        <span class="text-muted ">Instagram</span>
+                                        <span class="text-muted">278,534 Followers</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-start mb-4 ">
+                                <div class="me-3">
+                                    <img src="./avatar-2.jpg" width="50" class="rounded-circle">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h5 class="m-0">@samanthawilliam_</h5>
+                                    <div class="d-flex justify-content-between gap-3 mt-1">
+                                        <span class="text-muted ">Instagram</span>
+                                        <span class="text-muted">278,534 Followers</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card shadow-sm p-3 border-0">
+                            <div class="d-flex flex-column">
+                                <h3 class="fw-bold m-0">Post Insights</h3>
+                                <p>Posted on May 10, 2024 -6:10pm</p>
+
+                                <div class="d-flex align-items-center justify-content-between mt-3">
+                                    <div class="d-flex flex-column">
+                                        <p class="m-0">Accounts reached</p>
+                                        <h2 class="fw-bold m-0">5,192,879</h2>
+                                    </div>
+                                    <div>
+                                        <img src="./chrt4.svg" alt="chart4" class="img-fluid mb-3">
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mt-3">
+                                    <div class="d-flex flex-column">
+                                        <p class="m-0">Followers </p>
+                                        <h2 class="fw-bold m-0">+2,934</h2>
+                                    </div>
+                                    <div>
+                                        <img src="./chrt4.svg" alt="chart4" class="img-fluid mb-3">
+                                    </div>
+                                </div>
+                                <div class="d-flex  justify-content-between mt-3">
+                                    <div class="d-flex flex-column">
+                                        <h4 class=" fw-bold">Unique Finding</h4>
+                                        <p class=" m-0">You have gained more reach and followers when the post is
+                                            related to workspace or productivity. Keep it up!</p>
+                                        <button class="btn btn-outline-primary rounded-pill mt-2"
+                                            style="width: 230px;">Subscribe for another
+                                            finding</button>
+                                    </div>
+
+                                    <img src="./laptop.png" alt="laptop" class="img-fluid laptop mb-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card shadow-sm p-3 border-0">
+                            <div class="d-flex flex-column">
+                                <h3 class="fw-bold m-0">Global Reach</h3>
+                                <p><span class="text-success">+8.6%</span> Than last month</p>
+
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+
+                                        <div class="w-75 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center fs-13">
+                                                <p class="text-muted mb-1">Other</p>
+                                                <p class="text-dark fw-bold mb-1">70%</p>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar violet" style="width:70%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="w-25 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center fs-13">
+                                                <p class="text-muted mb-1">Asia</p>
+                                                <p class="text-dark fw-bold mb-1">40%</p>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar violet" style="width:40%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="w-50 mb-3">
+                                            <div class="d-flex justify-content-between align-items-center fs-13">
+                                                <p class="text-muted mb-1">Europe</p>
+                                                <p class="text-dark fw-bold mb-1">50%</p>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar violet " style="width:50%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="w-25">
+                                            <div class="d-flex justify-content-between align-items-center fs-13">
+                                                <p class="text-muted mb-1">America</p>
+                                                <p class="text-dark  fw-bold mb-1">30%</p>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar violet" style="width:30%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 text-center">
+                                        <img src="./map.png" alt="Global Map" class="img-fluid"
+                                            style="max-height: 220px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card shadow-sm p-3 border-0">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex align-items-center justify-content-between w-100 mb-2">
+
+                                    <h3 class="fw-bold ">Segmentation Age</h3>
+                                    <div class="dropdown">
+                                        <button class="btn p-0 border-0 bg-transparent" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots-vertical fs-5"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#">This week</a></li>
+                                            <li><a class="dropdown-item" href="#">This month</a></li>
+                                            <li><a class="dropdown-item" href="#">This year</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-3 m-3">
+                                    <h4 class="fw-600"><span><button class="btn purp p-2"></button></span>Female</h4>
+                                    <h4 class="fw-600"><span><button class="btn purple p-2"></button></span>Male</h4>
+                                </div>
+                                <img src="./chrt6.svg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="./urbix.js"></script>
+</body>
+
+</html>
